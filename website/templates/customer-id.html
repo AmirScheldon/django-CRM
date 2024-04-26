@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class= 'h-100'>
+  <div class="card w-100 mb-1">
+      <h2 class="card-header  "><strong>{{queryset.first_name}} {{queryset.last_name}}</strong></h2>
+      <div class="card-body">
+        <p class="card-text"><strong>EMAIL: </strong>{{queryset.email}}</p>
+        <p class="card-text"><strong>PHONE: </strong>{{queryset.phone}}</p>
+        <p class="card-text"><strong>ADDRESS: </strong>{{queryset.address}}</p>
+        <p class="card-text"><strong>CITY: </strong>{{queryset.city}}</p>
+        <p class="card-text"><strong>STATE: </strong>{{queryset.state}}</p>
+        <p class="card-text"><strong>ZIPCODE: </strong>{{queryset.zipcode}}</p>
+      </div>
+  </div>
+<a href="{% url 'home' %}" class="btn btn-secondary">back</a>
+<a href="{% url 'update-customer' queryset.pk %}" class="btn btn-secondary">update</a>
+<a href="{% url 'delete-customer' queryset.pk %}" class="btn btn-danger">delete</a>
+</div> 
+{% endblock %}

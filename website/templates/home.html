@@ -1,5 +1,30 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1> Hello World </h1>
+<table class="table table-striped-columns">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">adrress</th>
+        <th scope="col">created_at</th>
+        <th scope="col">ID</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% if record %}
+            {% for count in record %}       
+                    <tr>
+                        <td> {{count.first_name}} {{count.last_name}} </td>
+                        <td> {{count.email}} </td>
+                        <td> {{count.phone}} </td>
+                        <td> {{count.address}} </td>
+                        <td> {{count.created_at}} </td>
+                        <td> <a href= "{% url 'customer-id' count.id %}"> {{count.id}} </a></td> 
+                    </tr>
+            {% endfor %} 
+        {% endif %}
+    </tbody>
+</table>
 {% endblock %}
